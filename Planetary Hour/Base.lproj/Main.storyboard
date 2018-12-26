@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,103 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" mapType="hybridFlyover" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A7L-0z-f3X">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uNp-wl-zEE" userLabel="Solar and Lunar Data Container View">
+                                <rect key="frame" x="0.0" y="146" width="375" height="375"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="uNp-wl-zEE" secondAttribute="height" multiplier="1:1" identifier=" " id="tSB-FY-FF5"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="VcI-O5-eFQ" kind="embed" id="tkc-Hw-TZd"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="uNp-wl-zEE" firstAttribute="leading" secondItem="A7L-0z-f3X" secondAttribute="leading" id="3nd-sd-pSx"/>
+                            <constraint firstItem="uNp-wl-zEE" firstAttribute="centerY" secondItem="A7L-0z-f3X" secondAttribute="centerY" id="8EA-fT-e3o"/>
+                            <constraint firstItem="A7L-0z-f3X" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="IXX-S1-tKJ"/>
+                            <constraint firstItem="uNp-wl-zEE" firstAttribute="centerX" secondItem="A7L-0z-f3X" secondAttribute="centerX" id="LmL-ao-gXL"/>
+                            <constraint firstItem="A7L-0z-f3X" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="QXy-hz-eks"/>
+                            <constraint firstItem="uNp-wl-zEE" firstAttribute="width" secondItem="A7L-0z-f3X" secondAttribute="width" id="XB2-UY-Lyu"/>
+                            <constraint firstItem="A7L-0z-f3X" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dOE-sZ-1FN"/>
+                            <constraint firstItem="A7L-0z-f3X" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="s9k-RF-1as"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Moon Phase Scene View Controller-->
+        <scene sceneID="thh-fR-Uds">
+            <objects>
+                <viewController id="zte-8J-Hil" customClass="MoonPhaseSceneViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BZK-kn-xPi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" loops="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uld-1g-Lbd">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </sceneKitView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Uld-1g-Lbd" firstAttribute="centerX" secondItem="BZK-kn-xPi" secondAttribute="centerX" id="cmw-ue-hE6"/>
+                            <constraint firstItem="Uld-1g-Lbd" firstAttribute="width" secondItem="BZK-kn-xPi" secondAttribute="width" id="fFt-bH-NpZ"/>
+                            <constraint firstItem="Uld-1g-Lbd" firstAttribute="centerY" secondItem="BZK-kn-xPi" secondAttribute="centerY" id="pzY-xb-wxm"/>
+                            <constraint firstItem="Uld-1g-Lbd" firstAttribute="height" secondItem="BZK-kn-xPi" secondAttribute="height" id="xlu-q9-ZQZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="IF4-7S-Psw"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fc6-I9-pbr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2398" y="37"/>
+        </scene>
+        <!--Moon Phase Core Graphics View Controller-->
+        <scene sceneID="8dp-5g-7jO">
+            <objects>
+                <viewController id="VcI-O5-eFQ" customClass="MoonPhaseCoreGraphicsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Ee-Dz-Tbg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U77-NA-tVC" customClass="MoonPhaseCoreGraphicsView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="U77-NA-tVC" secondAttribute="height" multiplier="1:1" id="Ugm-Q9-SAM"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="phase">
+                                        <real key="value" value="-0.59999999999999998"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="U77-NA-tVC" firstAttribute="centerX" secondItem="GPi-Gf-xzZ" secondAttribute="centerX" id="3kH-Tv-c6K"/>
+                            <constraint firstItem="U77-NA-tVC" firstAttribute="centerY" secondItem="GPi-Gf-xzZ" secondAttribute="centerY" id="AEz-O9-7jU"/>
+                            <constraint firstItem="U77-NA-tVC" firstAttribute="width" secondItem="4Ee-Dz-Tbg" secondAttribute="width" id="VMv-fp-8P8"/>
+                            <constraint firstItem="U77-NA-tVC" firstAttribute="leading" secondItem="4Ee-Dz-Tbg" secondAttribute="leading" id="W5A-xd-ukE"/>
+                            <constraint firstItem="U77-NA-tVC" firstAttribute="top" secondItem="4Ee-Dz-Tbg" secondAttribute="top" id="eJz-XB-uiG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GPi-Gf-xzZ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o2E-g5-ND0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1546" y="-94"/>
         </scene>
     </scenes>
 </document>
