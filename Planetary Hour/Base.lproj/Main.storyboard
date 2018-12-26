@@ -89,11 +89,6 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="U77-NA-tVC" secondAttribute="height" multiplier="1:1" id="Ugm-Q9-SAM"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="phase">
-                                        <real key="value" value="-0.59999999999999998"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
