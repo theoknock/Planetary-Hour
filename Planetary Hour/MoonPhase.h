@@ -1,8 +1,8 @@
 //
-//  MoonPhase.h
+//  MoonPhaseCalculator.h
 //  Planetary Hour
 //
-//  Created by Xcode Developer on 12/23/18.
+//  Created by Xcode Developer on 12/26/18.
 //  Copyright © 2018 The Life of a Demoniac. All rights reserved.
 //
 
@@ -16,11 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
     NSDate *now;
 }
 
-+ (nonnull MoonPhase *)sharedMoonPhaseCalculator;
++ (nonnull MoonPhase *)calculator;
 
-- (float) phase;
+- (float)phaseForDate:(NSDate *)date;
 
 @end
 
 NS_ASSUME_NONNULL_END
-

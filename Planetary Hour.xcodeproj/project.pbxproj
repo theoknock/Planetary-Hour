@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B9268E8621CEAFB30037A5F7 /* MoonPhaseSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9268E8521CEAFB30037A5F7 /* MoonPhaseSceneViewController.m */; };
-		B9268E8921D050110037A5F7 /* MoonPhaseCoreGraphicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9268E8821D050110037A5F7 /* MoonPhaseCoreGraphicsViewController.m */; };
+		B921203921D4434100CDA187 /* MoonPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = B921203821D4434100CDA187 /* MoonPhase.m */; };
+		B921203C21D4469300CDA187 /* PlanetaryHourDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B921203B21D4469300CDA187 /* PlanetaryHourDataViewController.m */; };
 		B9268E8C21D0504C0037A5F7 /* MoonPhaseCoreGraphicsView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9268E8B21D0504C0037A5F7 /* MoonPhaseCoreGraphicsView.m */; };
-		B9268E8F21D0510F0037A5F7 /* MoonPhase.m in Sources */ = {isa = PBXBuildFile; fileRef = B9268E8E21D0510F0037A5F7 /* MoonPhase.m */; };
+		B9268EB821D3F6340037A5F7 /* SolarTransitCoreGraphicsView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9268EB721D3F6340037A5F7 /* SolarTransitCoreGraphicsView.m */; };
 		B9BBED4721CDC43100D98F2A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BBED4621CDC43100D98F2A /* AppDelegate.m */; };
 		B9BBED4A21CDC43100D98F2A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BBED4921CDC43100D98F2A /* ViewController.m */; };
 		B9BBED4D21CDC43100D98F2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9BBED4B21CDC43100D98F2A /* Main.storyboard */; };
@@ -20,14 +20,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B9268E8421CEAFB30037A5F7 /* MoonPhaseSceneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoonPhaseSceneViewController.h; sourceTree = "<group>"; };
-		B9268E8521CEAFB30037A5F7 /* MoonPhaseSceneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoonPhaseSceneViewController.m; sourceTree = "<group>"; };
-		B9268E8721D050110037A5F7 /* MoonPhaseCoreGraphicsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoonPhaseCoreGraphicsViewController.h; sourceTree = "<group>"; };
-		B9268E8821D050110037A5F7 /* MoonPhaseCoreGraphicsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoonPhaseCoreGraphicsViewController.m; sourceTree = "<group>"; };
+		B921203721D4434100CDA187 /* MoonPhase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoonPhase.h; sourceTree = "<group>"; };
+		B921203821D4434100CDA187 /* MoonPhase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoonPhase.m; sourceTree = "<group>"; };
+		B921203A21D4469300CDA187 /* PlanetaryHourDataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlanetaryHourDataViewController.h; sourceTree = "<group>"; wrapsLines = 0; };
+		B921203B21D4469300CDA187 /* PlanetaryHourDataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlanetaryHourDataViewController.m; sourceTree = "<group>"; };
 		B9268E8A21D0504C0037A5F7 /* MoonPhaseCoreGraphicsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoonPhaseCoreGraphicsView.h; sourceTree = "<group>"; };
 		B9268E8B21D0504C0037A5F7 /* MoonPhaseCoreGraphicsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoonPhaseCoreGraphicsView.m; sourceTree = "<group>"; wrapsLines = 0; };
-		B9268E8D21D0510F0037A5F7 /* MoonPhase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoonPhase.h; sourceTree = "<group>"; };
-		B9268E8E21D0510F0037A5F7 /* MoonPhase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoonPhase.m; sourceTree = "<group>"; };
+		B9268EB621D3F6340037A5F7 /* SolarTransitCoreGraphicsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SolarTransitCoreGraphicsView.h; sourceTree = "<group>"; };
+		B9268EB721D3F6340037A5F7 /* SolarTransitCoreGraphicsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SolarTransitCoreGraphicsView.m; sourceTree = "<group>"; };
 		B9BBED4221CDC43100D98F2A /* Planetary Hour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Planetary Hour.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9BBED4521CDC43100D98F2A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B9BBED4621CDC43100D98F2A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -75,14 +75,14 @@
 				B9BBED4821CDC43100D98F2A /* ViewController.h */,
 				B9BBED4921CDC43100D98F2A /* ViewController.m */,
 				B9BBED4B21CDC43100D98F2A /* Main.storyboard */,
+				B921203A21D4469300CDA187 /* PlanetaryHourDataViewController.h */,
+				B921203B21D4469300CDA187 /* PlanetaryHourDataViewController.m */,
+				B9268EB621D3F6340037A5F7 /* SolarTransitCoreGraphicsView.h */,
+				B9268EB721D3F6340037A5F7 /* SolarTransitCoreGraphicsView.m */,
 				B9268E8A21D0504C0037A5F7 /* MoonPhaseCoreGraphicsView.h */,
 				B9268E8B21D0504C0037A5F7 /* MoonPhaseCoreGraphicsView.m */,
-				B9268E8D21D0510F0037A5F7 /* MoonPhase.h */,
-				B9268E8E21D0510F0037A5F7 /* MoonPhase.m */,
-				B9268E8721D050110037A5F7 /* MoonPhaseCoreGraphicsViewController.h */,
-				B9268E8821D050110037A5F7 /* MoonPhaseCoreGraphicsViewController.m */,
-				B9268E8421CEAFB30037A5F7 /* MoonPhaseSceneViewController.h */,
-				B9268E8521CEAFB30037A5F7 /* MoonPhaseSceneViewController.m */,
+				B921203721D4434100CDA187 /* MoonPhase.h */,
+				B921203821D4434100CDA187 /* MoonPhase.m */,
 				B9BBED4E21CDC43200D98F2A /* Assets.xcassets */,
 				B9BBED5021CDC43200D98F2A /* LaunchScreen.storyboard */,
 				B9BBED5321CDC43200D98F2A /* Info.plist */,
@@ -161,13 +161,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9268E8921D050110037A5F7 /* MoonPhaseCoreGraphicsViewController.m in Sources */,
+				B9268EB821D3F6340037A5F7 /* SolarTransitCoreGraphicsView.m in Sources */,
 				B9268E8C21D0504C0037A5F7 /* MoonPhaseCoreGraphicsView.m in Sources */,
-				B9268E8621CEAFB30037A5F7 /* MoonPhaseSceneViewController.m in Sources */,
 				B9BBED4A21CDC43100D98F2A /* ViewController.m in Sources */,
-				B9268E8F21D0510F0037A5F7 /* MoonPhase.m in Sources */,
+				B921203921D4434100CDA187 /* MoonPhase.m in Sources */,
 				B9BBED5521CDC43200D98F2A /* main.m in Sources */,
 				B9BBED4721CDC43100D98F2A /* AppDelegate.m in Sources */,
+				B921203C21D4469300CDA187 /* PlanetaryHourDataViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

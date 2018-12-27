@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,30 +15,27 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" mapType="hybridFlyover" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A7L-0z-f3X">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </mapView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uNp-wl-zEE" userLabel="Solar and Lunar Data Container View">
-                                <rect key="frame" x="0.0" y="146" width="375" height="375"/>
+                                <rect key="frame" x="0.0" y="44.000000000000007" width="414" height="81.666666666666686"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="uNp-wl-zEE" secondAttribute="height" multiplier="1:1" identifier=" " id="tSB-FY-FF5"/>
-                                </constraints>
                                 <connections>
-                                    <segue destination="VcI-O5-eFQ" kind="embed" id="tkc-Hw-TZd"/>
+                                    <segue destination="VcI-O5-eFQ" kind="embed" id="8Kf-sT-hkj"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="uNp-wl-zEE" firstAttribute="leading" secondItem="A7L-0z-f3X" secondAttribute="leading" id="3nd-sd-pSx"/>
-                            <constraint firstItem="uNp-wl-zEE" firstAttribute="centerY" secondItem="A7L-0z-f3X" secondAttribute="centerY" id="8EA-fT-e3o"/>
                             <constraint firstItem="A7L-0z-f3X" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="IXX-S1-tKJ"/>
                             <constraint firstItem="uNp-wl-zEE" firstAttribute="centerX" secondItem="A7L-0z-f3X" secondAttribute="centerX" id="LmL-ao-gXL"/>
                             <constraint firstItem="A7L-0z-f3X" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="QXy-hz-eks"/>
+                            <constraint firstItem="uNp-wl-zEE" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.1" id="UXz-Fy-TUH"/>
+                            <constraint firstItem="uNp-wl-zEE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="WvY-Os-dKC"/>
                             <constraint firstItem="uNp-wl-zEE" firstAttribute="width" secondItem="A7L-0z-f3X" secondAttribute="width" id="XB2-UY-Lyu"/>
                             <constraint firstItem="A7L-0z-f3X" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dOE-sZ-1FN"/>
                             <constraint firstItem="A7L-0z-f3X" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="s9k-RF-1as"/>
@@ -49,42 +46,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--Moon Phase Scene View Controller-->
-        <scene sceneID="thh-fR-Uds">
-            <objects>
-                <viewController id="zte-8J-Hil" customClass="MoonPhaseSceneViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="BZK-kn-xPi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" loops="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uld-1g-Lbd">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </sceneKitView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="Uld-1g-Lbd" firstAttribute="centerX" secondItem="BZK-kn-xPi" secondAttribute="centerX" id="cmw-ue-hE6"/>
-                            <constraint firstItem="Uld-1g-Lbd" firstAttribute="width" secondItem="BZK-kn-xPi" secondAttribute="width" id="fFt-bH-NpZ"/>
-                            <constraint firstItem="Uld-1g-Lbd" firstAttribute="centerY" secondItem="BZK-kn-xPi" secondAttribute="centerY" id="pzY-xb-wxm"/>
-                            <constraint firstItem="Uld-1g-Lbd" firstAttribute="height" secondItem="BZK-kn-xPi" secondAttribute="height" id="xlu-q9-ZQZ"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="IF4-7S-Psw"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Fc6-I9-pbr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2398" y="37"/>
-        </scene>
-        <!--Moon Phase Core Graphics View Controller-->
+        <!--Solar and Lunar Data Core Graphics View Controller-->
         <scene sceneID="8dp-5g-7jO">
             <objects>
-                <viewController id="VcI-O5-eFQ" customClass="MoonPhaseCoreGraphicsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4Ee-Dz-Tbg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                <viewController id="VcI-O5-eFQ" userLabel="Solar and Lunar Data Core Graphics View Controller" customClass="PlanetaryHourDataViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4Ee-Dz-Tbg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="81.666666666666686"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U77-NA-tVC" customClass="MoonPhaseCoreGraphicsView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZT-fP-g4Q" userLabel="Solar Transit Core Graphics View" customClass="SolarTransitCoreGraphicsView">
+                                <rect key="frame" x="81.666666666666657" y="0.0" width="81.666666666666657" height="81.666666666666671"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="wZT-fP-g4Q" secondAttribute="height" multiplier="1:1" id="Ie9-5b-uKv"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U77-NA-tVC" customClass="MoonPhaseCoreGraphicsView">
+                                <rect key="frame" x="0.0" y="0.0" width="81.666666666666671" height="81.666666666666671"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="U77-NA-tVC" secondAttribute="height" multiplier="1:1" id="Ugm-Q9-SAM"/>
@@ -93,18 +71,21 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="U77-NA-tVC" firstAttribute="centerX" secondItem="GPi-Gf-xzZ" secondAttribute="centerX" id="3kH-Tv-c6K"/>
-                            <constraint firstItem="U77-NA-tVC" firstAttribute="centerY" secondItem="GPi-Gf-xzZ" secondAttribute="centerY" id="AEz-O9-7jU"/>
-                            <constraint firstItem="U77-NA-tVC" firstAttribute="width" secondItem="4Ee-Dz-Tbg" secondAttribute="width" id="VMv-fp-8P8"/>
+                            <constraint firstItem="wZT-fP-g4Q" firstAttribute="leading" secondItem="U77-NA-tVC" secondAttribute="trailing" id="L3F-u6-wAK"/>
                             <constraint firstItem="U77-NA-tVC" firstAttribute="leading" secondItem="4Ee-Dz-Tbg" secondAttribute="leading" id="W5A-xd-ukE"/>
+                            <constraint firstItem="U77-NA-tVC" firstAttribute="height" secondItem="4Ee-Dz-Tbg" secondAttribute="height" id="WYf-Gg-7B4"/>
+                            <constraint firstItem="wZT-fP-g4Q" firstAttribute="height" secondItem="4Ee-Dz-Tbg" secondAttribute="height" id="cxj-vV-Hji"/>
                             <constraint firstItem="U77-NA-tVC" firstAttribute="top" secondItem="4Ee-Dz-Tbg" secondAttribute="top" id="eJz-XB-uiG"/>
+                            <constraint firstItem="wZT-fP-g4Q" firstAttribute="top" secondItem="4Ee-Dz-Tbg" secondAttribute="top" id="oGq-D1-blW"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="GPi-Gf-xzZ"/>
                     </view>
+                    <connections>
+                        <outlet property="moonPhaseView" destination="U77-NA-tVC" id="S6E-sF-bX6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o2E-g5-ND0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1546" y="-94"/>
+            <point key="canvasLocation" x="1442" y="-246"/>
         </scene>
     </scenes>
 </document>

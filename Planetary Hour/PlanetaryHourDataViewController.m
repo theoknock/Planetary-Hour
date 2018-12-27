@@ -1,22 +1,29 @@
 //
-//  MoonPhaseCoreGraphicsViewController.m
+//  PlanetaryHourDataViewController.m
 //  Planetary Hour
 //
-//  Created by Xcode Developer on 12/23/18.
+//  Created by Xcode Developer on 12/26/18.
 //  Copyright © 2018 The Life of a Demoniac. All rights reserved.
 //
 
-#import "MoonPhaseCoreGraphicsViewController.h"
+#import "PlanetaryHourDataViewController.h"
+#import "MoonPhase.h"
 
-@interface MoonPhaseCoreGraphicsViewController ()
+@interface PlanetaryHourDataViewController ()
 
 @end
 
-@implementation MoonPhaseCoreGraphicsViewController
+@implementation PlanetaryHourDataViewController
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    
+    [self.moonPhaseView setMoonPhase:[MoonPhase.calculator phaseForDate:[NSDate date]]];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 /*

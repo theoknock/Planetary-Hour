@@ -1,8 +1,8 @@
 //
-//  MoonPhase.m
+//  MoonPhaseCalculator.m
 //  Planetary Hour
 //
-//  Created by Xcode Developer on 12/23/18.
+//  Created by Xcode Developer on 12/26/18.
 //  Copyright © 2018 The Life of a Demoniac. All rights reserved.
 //
 
@@ -49,17 +49,17 @@ float kepler( float m, float ecc ){
 
 @implementation MoonPhase
 
-static MoonPhase *sharedMoonPhaseCalculator = NULL;
-+ (nonnull MoonPhase *)sharedMoonPhaseCalculator
+static MoonPhase *calculator = NULL;
++ (nonnull MoonPhase *)calculator
 {
     static dispatch_once_t onceSecurePredicate;
     dispatch_once(&onceSecurePredicate,^
                   {
-                      if (!sharedMoonPhaseCalculator)
-                          sharedMoonPhaseCalculator = [[self alloc] init];
+                      if (!calculator)
+                          calculator = [[self alloc] init];
                   });
-
-    return sharedMoonPhaseCalculator;
+    
+    return calculator;
 }
 
 - (id) init {
@@ -74,7 +74,8 @@ static MoonPhase *sharedMoonPhaseCalculator = NULL;
     
 }
 
-- (float) phase {
+- (float)phaseForDate:(NSDate *)date
+{
     // const
     double Epoch = 2444238.5;
     float Elonge = 278.833540;
@@ -85,7 +86,7 @@ static MoonPhase *sharedMoonPhaseCalculator = NULL;
     float Mlnode = 151.950429;
     float Minc = 5.145396;
     
-    NSTimeInterval d = [now timeIntervalSince1970];
+    NSTimeInterval d = [date timeIntervalSince1970];
     
     double pdate = jtime( (float)d );
     double Day = pdate - Epoch;
@@ -118,8 +119,8 @@ static MoonPhase *sharedMoonPhaseCalculator = NULL;
     double MoonAge = lPP - Lambdasun;
     float mpfrac = fixangle( MoonAge ) / 360.0f;
     
+    NSLog(@"Moon phase\t%f", mpfrac);
     return mpfrac;
 }
 
 @end
-

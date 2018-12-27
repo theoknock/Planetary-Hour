@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MoonPhaseCoreGraphicsView : UIView
 
+@property (assign, nonatomic, setter=setMoonPhase:) float moonPhase;
+
 @end
 
 NS_ASSUME_NONNULL_END
