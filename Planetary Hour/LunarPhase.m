@@ -1,12 +1,12 @@
 //
-//  MoonPhaseCalculator.m
+//  LunarPhaseCalculator.m
 //  Planetary Hour
 //
 //  Created by Xcode Developer on 12/26/18.
 //  Copyright © 2018 The Life of a Demoniac. All rights reserved.
 //
 
-#import "MoonPhase.h"
+#import "LunarPhase.h"
 
 float fixangle( float angle ){
     return angle - 360.0f * ( floor ( angle / 360.0f ) );
@@ -47,10 +47,10 @@ float kepler( float m, float ecc ){
     return e;
 }
 
-@implementation MoonPhase
+@implementation LunarPhase
 
-static MoonPhase *calculator = NULL;
-+ (nonnull MoonPhase *)calculator
+static LunarPhase *calculator = NULL;
++ (nonnull LunarPhase *)calculator
 {
     static dispatch_once_t onceSecurePredicate;
     dispatch_once(&onceSecurePredicate,^
@@ -119,7 +119,6 @@ static MoonPhase *calculator = NULL;
     double MoonAge = lPP - Lambdasun;
     float mpfrac = fixangle( MoonAge ) / 360.0f;
     
-    NSLog(@"Moon phase\t%f", mpfrac);
     return mpfrac;
 }
 

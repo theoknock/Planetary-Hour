@@ -1,21 +1,22 @@
 //
-//  MoonPhaseCoreGraphicsView.m
+//  LunarPhaseCoreGraphicsView.m
 //  Planetary Hour
 //
 //  Created by Xcode Developer on 12/23/18.
 //  Copyright © 2018 The Life of a Demoniac. All rights reserved.
 //
 
-#import "MoonPhaseCoreGraphicsView.h"
+#import "LunarPhaseCoreGraphicsView.h"
+#import "LunarPhase.h"
 
 #define degreesToRadians( degrees ) ( ( degrees ) / 180.0f * M_PI )
 
 typedef enum : NSUInteger {
-    MoonPhaseColorYellow,
-    MoonPhaseColorBlue,
-} MoonPhaseColor;
+    LunarPhaseColorGray,
+    LunarPhaseColorWhite,
+} LunarPhaseColor;
 
-@interface MoonPhaseCoreGraphicsView ()
+@interface LunarPhaseCoreGraphicsView ()
 {
     CAShapeLayer *moonLayer;
     CAShapeLayer *gibbousLayer;
@@ -24,12 +25,13 @@ typedef enum : NSUInteger {
 
 @end
 
-@implementation MoonPhaseCoreGraphicsView
+@implementation LunarPhaseCoreGraphicsView
 
 @synthesize moonPhase = _moonPhase;
 
-- (void)setMoonPhase:(float)moonPhase
+- (void)setLunarPhase:(float)moonPhase
 {
+    NSLog(@"setLunarPhase: %f", moonPhase);
     _moonPhase = moonPhase;
     [self setNeedsDisplay];
 }
@@ -53,28 +55,33 @@ typedef enum : NSUInteger {
 
 - (void)drawRect:(CGRect)rect
 {
+    if (!_moonPhase)
+        [self setLunarPhase:[LunarPhase.calculator phaseForDate:[NSDate date]]];
+    
     // Path color
-    void(^renderMoonPhasePath)(UIBezierPath *, MoonPhaseColor, CAShapeLayer *) = ^(UIBezierPath *path, MoonPhaseColor moonPhaseColor, CAShapeLayer *targetLayer) {
-        UIColor *color = (moonPhaseColor == MoonPhaseColorYellow) ? [UIColor yellowColor] : [UIColor blueColor];
-        [color setStroke];
-        [color setFill];
-        [path fill];
+    void(^renderLunarPhasePath)(UIBezierPath *, LunarPhaseColor, CAShapeLayer *) = ^(UIBezierPath *path, LunarPhaseColor moonPhaseColor, CAShapeLayer *targetLayer) {
+        [[UIColor clearColor] setStroke];
         [path stroke];
+        
+        UIColor *fillColor = (moonPhaseColor == LunarPhaseColorWhite) ? [UIColor whiteColor] : [UIColor grayColor];
+        [fillColor setFill];
+        [path fill];
+        
         [targetLayer setPath:path.CGPath];
     };
     
     // Moon
     UIBezierPath *moonPath = [UIBezierPath bezierPathWithOvalInRect:rect];
-    renderMoonPhasePath(moonPath, (_moonPhase <= .5) ? MoonPhaseColorBlue : MoonPhaseColorYellow, moonLayer);
+    renderLunarPhasePath(moonPath, LunarPhaseColorWhite, moonLayer);
     
     // Gibbous
-    UIBezierPath *gibbous = [UIBezierPath bezierPath];
-    [gibbous addArcWithCenter:CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect))
+    UIBezierPath *gibbousPath = [UIBezierPath bezierPath];
+    [gibbousPath addArcWithCenter:CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect))
                            radius:CGRectGetMidY(rect)
                        startAngle:degreesToRadians(90) endAngle:degreesToRadians(270)
                         clockwise:(_moonPhase >= .5) ? FALSE : TRUE];
-    renderMoonPhasePath(gibbous, (_moonPhase >= .5) ? MoonPhaseColorBlue : MoonPhaseColorYellow, gibbousLayer);
-    
+    renderLunarPhasePath(gibbousPath, LunarPhaseColorGray, gibbousLayer);
+
     // Shadow
     CGFloat width      = CGRectGetWidth(rect) - (CGRectGetWidth(rect) * fabs(_moonPhase - 0.5));
     CGFloat center_x   = CGRectGetMidX(rect) - (width / 2.0);
@@ -83,8 +90,13 @@ typedef enum : NSUInteger {
                                     width,
                                     CGRectGetHeight(rect));
     UIBezierPath *shadowPath = [UIBezierPath bezierPathWithOvalInRect:shadow_rect];
-    renderMoonPhasePath(shadowPath, (_moonPhase <= .5) ? MoonPhaseColorYellow : MoonPhaseColorBlue, shadowLayer);
+    renderLunarPhasePath(shadowPath, (_moonPhase <= .5) ? LunarPhaseColorWhite : LunarPhaseColorGray, shadowLayer);
+    CGRect clipping_rect = CGRectMake(shadow_rect.origin.x + (shadow_rect.size.width / 2.0),
+                                      shadow_rect.origin.y,
+                                      shadow_rect.size.width / 2.0,
+                                      shadow_rect.size.height);
 }
 
 @end
+
 

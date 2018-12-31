@@ -17,66 +17,66 @@ typedef enum : NSUInteger {
 
 @interface SolarTransitCoreGraphicsView ()
 {
-    CAShapeLayer *dayLayer;
-    CAShapeLayer *nightLayer;
-    CAShapeLayer *twilightLayer;
+    CAShapeLayer *sunLayer;
+    CAShapeLayer *horizonLayer;
 }
 
 @end
 
 @implementation SolarTransitCoreGraphicsView
 
+@synthesize solarProgression = _solarProgression;
+
+- (float)solarProgression
+{
+    return _solarProgression;
+}
+
+- (void)setSolarProgression:(float)solarProgression
+{
+    _solarProgression = solarProgression;
+    [self setNeedsDisplay];
+    
+}
+
 - (void)layoutSubviews
 {
     [super layoutSubviews];
     
-    if (!dayLayer && !nightLayer && !twilightLayer)
+    if (!sunLayer && !horizonLayer)
     {
-        [dayLayer      = [CAShapeLayer new] setFrame:self.layer.bounds];
-        [nightLayer    = [CAShapeLayer new] setFrame:self.layer.bounds];
-        [twilightLayer = [CAShapeLayer new] setFrame:self.layer.bounds];
+        [sunLayer     = [CAShapeLayer new] setFrame:self.layer.bounds];
+        [horizonLayer = [CAShapeLayer new] setFrame:self.layer.bounds];
     }
 }
 
-//- (void)drawRect:(CGRect)rect
-//{
-//    [self renderSolarTransit:S.sharedMoonPhaseCalculator.phase inRect:rect context:UIGraphicsGetCurrentContext()];
-//}
-//
-//- (void)renderSolarTransit:(CGFloat)phase inRect:(CGRect)rect context:(CGContextRef)context
-//{
-//    // Path color
-//    void(^renderMoonPhasePath)(UIBezierPath *, MoonPhaseColor, CAShapeLayer *) = ^(UIBezierPath *path, MoonPhaseColor moonPhaseColor, CAShapeLayer *targetLayer) {
-//        UIColor *color = (moonPhaseColor == MoonPhaseColorYellow) ? [UIColor yellowColor] : [UIColor blueColor];
-//        [color setStroke];
-//        [color setFill];
-//        [path fill];
-//        [path stroke];
-//        [targetLayer setPath:path.CGPath];
-//    };
-//    
-//    // Moon
-//    UIBezierPath *moonPath = [UIBezierPath bezierPathWithOvalInRect:rect];
-//    renderMoonPhasePath(moonPath, (phase <= .5) ? MoonPhaseColorBlue : MoonPhaseColorYellow, moonLayer);
-//    
-//    // Gibbous
-//    UIBezierPath *gibbous = [UIBezierPath bezierPath];
-//    [gibbous addArcWithCenter:CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect))
-//                       radius:CGRectGetMidY(rect)
-//                   startAngle:degreesToRadians(90) endAngle:degreesToRadians(270)
-//                    clockwise:(phase >= .5) ? FALSE : TRUE];
-//    renderMoonPhasePath(gibbous, (phase >= .5) ? MoonPhaseColorBlue : MoonPhaseColorYellow, gibbousLayer);
-//    
-//    // Shadow
-//    CGFloat width      = CGRectGetWidth(rect) - (CGRectGetWidth(rect) * fabs(phase - 0.5));
-//    CGFloat center_x   = CGRectGetMidX(rect) - (width / 2.0);
-//    CGRect shadow_rect = CGRectMake(center_x,
-//                                    CGRectGetMinY(rect),
-//                                    width,
-//                                    CGRectGetHeight(rect));
-//    UIBezierPath *shadowPath = [UIBezierPath bezierPathWithOvalInRect:shadow_rect];
-//    renderMoonPhasePath(shadowPath, (phase >= .5) ? MoonPhaseColorYellow : MoonPhaseColorBlue, shadowLayer);
-//}
+- (void)drawRect:(CGRect)rect
+{
+    // Path color
+    void(^renderLunarPhasePath)(UIBezierPath *, SolarTransitColor, CAShapeLayer *) = ^(UIBezierPath *path, SolarTransitColor moonPhaseColor, CAShapeLayer *targetLayer) {
+        [[UIColor whiteColor] setStroke];
+        [path stroke];
+        
+        UIColor *fillColor = (moonPhaseColor == SolarTransitColorYellow) ? [UIColor whiteColor] : [UIColor clearColor];
+        [fillColor setFill];
+        [path fill];
+        
+        [targetLayer setPath:path.CGPath];
+    };
+    
+    UIBezierPath *sunPath = [UIBezierPath bezierPath];
+    float dawn  = CGRectGetMaxY(rect);
+    float dusk  = CGRectGetMinY(rect);
+    float noon  = (dawn - dusk) / 2.0;
+    NSLog(@"1.\tdawn: %f\tdusk: %f\tnoon: %f", dawn, dusk, noon);
+    float progress = noon + (dawn * fabs(_solarProgression - 0.5));
+    [sunPath addArcWithCenter:CGPointMake(CGRectGetMidX(rect), progress)
+                       radius:CGRectGetMidY(rect)
+                   startAngle:degreesToRadians(0) endAngle:degreesToRadians(360)
+                    clockwise:(_solarProgression >= .5) ? FALSE : TRUE];
+    renderLunarPhasePath(sunPath, (_solarProgression >= .5) ? SolarTransitColorBlue : SolarTransitColorYellow, sunLayer);
+    
+    CGContextClipToRect(UIGraphicsGetCurrentContext(), rect);
+}
 
 @end
-

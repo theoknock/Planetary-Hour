@@ -1,5 +1,5 @@
 //
-//  MoonPhaseCoreGraphicsView.h
+//  LunarPhaseCoreGraphicsView.h
 //  Planetary Hour
 //
 //  Created by Xcode Developer on 12/23/18.
@@ -11,9 +11,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MoonPhaseCoreGraphicsView : UIView
+@interface LunarPhaseCoreGraphicsView : UIView
 
-@property (assign, nonatomic, setter=setMoonPhase:) float moonPhase;
+@property (assign, nonatomic, setter=setLunarPhase:) float moonPhase;
 
 @end
 

@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SolarTransitCoreGraphicsView : UIView
 
+@property (assign, nonatomic, setter=setSolarProgression:) float solarProgression;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -7,7 +7,8 @@
 //
 
 #import "PlanetaryHourDataViewController.h"
-#import "MoonPhase.h"
+#import "LunarPhase.h"
+#import "SolarTransit.h"
 
 @interface PlanetaryHourDataViewController ()
 
@@ -19,21 +20,31 @@
 {
     [super awakeFromNib];
     
-    [self.moonPhaseView setMoonPhase:[MoonPhase.calculator phaseForDate:[NSDate date]]];
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.moonPhaseView setLunarPhase:[LunarPhase.calculator phaseForDate:[NSDate date]]];
+    [SolarTransit.calculator solarProgressionForDate:[NSDate date]
+                                            location:nil
+                                     completionBlock:^(float solarProgression) {
+                                         dispatch_async(dispatch_get_main_queue(), ^{
+                                             [self.solarTransitView setSolarProgression:solarProgression];
+                                         });
+                                     }];
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
+

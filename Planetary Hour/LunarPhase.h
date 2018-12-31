@@ -1,5 +1,5 @@
 //
-//  MoonPhaseCalculator.h
+//  LunarPhaseCalculator.h
 //  Planetary Hour
 //
 //  Created by Xcode Developer on 12/26/18.
@@ -10,13 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MoonPhase : NSObject
+@interface LunarPhase : NSObject
 {
 @private
     NSDate *now;
 }
 
-+ (nonnull MoonPhase *)calculator;
++ (nonnull LunarPhase *)calculator;
 
 - (float)phaseForDate:(NSDate *)date;
 

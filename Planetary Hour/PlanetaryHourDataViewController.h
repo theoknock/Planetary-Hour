@@ -7,13 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MoonPhaseCoreGraphicsView.h"
+#import "LunarPhaseCoreGraphicsView.h"
+#import "SolarTransitCoreGraphicsView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PlanetaryHourDataViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet MoonPhaseCoreGraphicsView *moonPhaseView;
+@property (weak, nonatomic) IBOutlet LunarPhaseCoreGraphicsView *moonPhaseView;
+@property (weak, nonatomic) IBOutlet SolarTransitCoreGraphicsView *solarTransitView;
 
 @end
 
