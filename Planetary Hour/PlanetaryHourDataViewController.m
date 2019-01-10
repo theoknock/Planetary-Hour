@@ -9,6 +9,7 @@
 #import "PlanetaryHourDataViewController.h"
 #import "LunarPhase.h"
 #import "SolarTransit.h"
+#import "LunarPhaseSceneKitView.h"
 
 @interface PlanetaryHourDataViewController ()
 
@@ -26,14 +27,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.moonPhaseView setLunarPhase:[LunarPhase.calculator phaseForDate:[NSDate date]]];
+    float lunarPhase = [LunarPhase.calculator phaseForDate:[NSDate date]];
+    [self.moonPhaseView setLunarPhase:lunarPhase];
     [SolarTransit.calculator solarProgressionForDate:[NSDate date]
                                             location:nil
                                      completionBlock:^(float solarProgression) {
                                          dispatch_async(dispatch_get_main_queue(), ^{
-                                             [self.solarTransitView setSolarProgression:solarProgression];
+                                             [self
+                                              .solarTransitView setSolarProgression:solarProgression];
                                          });
                                      }];
+    
+    [self.lunarPhaseSceneKitView setLunarPhase:lunarPhase];
 }
 
 /*

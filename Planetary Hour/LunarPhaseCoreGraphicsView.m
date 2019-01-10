@@ -91,10 +91,6 @@ typedef enum : NSUInteger {
                                     CGRectGetHeight(rect));
     UIBezierPath *shadowPath = [UIBezierPath bezierPathWithOvalInRect:shadow_rect];
     renderLunarPhasePath(shadowPath, (_moonPhase <= .5) ? LunarPhaseColorWhite : LunarPhaseColorGray, shadowLayer);
-    CGRect clipping_rect = CGRectMake(shadow_rect.origin.x + (shadow_rect.size.width / 2.0),
-                                      shadow_rect.origin.y,
-                                      shadow_rect.size.width / 2.0,
-                                      shadow_rect.size.height);
 }
 
 @end

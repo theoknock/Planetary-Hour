@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SceneKit/SceneKit.h>
 #import "LunarPhaseCoreGraphicsView.h"
 #import "SolarTransitCoreGraphicsView.h"
+#import "LunarPhaseSceneKitView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet LunarPhaseCoreGraphicsView *moonPhaseView;
 @property (weak, nonatomic) IBOutlet SolarTransitCoreGraphicsView *solarTransitView;
+@property (weak, nonatomic) IBOutlet LunarPhaseSceneKitView *lunarPhaseSceneKitView;
 
 @end
 

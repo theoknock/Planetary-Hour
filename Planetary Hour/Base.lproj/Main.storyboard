@@ -54,13 +54,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="81.666666666666686"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZT-fP-g4Q" userLabel="Solar Transit View" customClass="SolarTransitCoreGraphicsView">
-                                <rect key="frame" x="81.666666666666629" y="0.0" width="81.666666666666657" height="81.666666666666671"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="wZT-fP-g4Q" secondAttribute="height" multiplier="1:1" id="Ie9-5b-uKv"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U77-NA-tVC" userLabel="Lunar Phase View" customClass="LunarPhaseCoreGraphicsView">
                                 <rect key="frame" x="0.0" y="0.0" width="81.666666666666671" height="81.666666666666671"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -68,19 +61,36 @@
                                     <constraint firstAttribute="width" secondItem="U77-NA-tVC" secondAttribute="height" multiplier="1:1" id="Ugm-Q9-SAM"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZT-fP-g4Q" userLabel="Solar Transit View" customClass="SolarTransitCoreGraphicsView">
+                                <rect key="frame" x="81.666666666666657" y="0.0" width="81.666666666666657" height="81.666666666666671"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="wZT-fP-g4Q" secondAttribute="height" multiplier="1:1" id="Ie9-5b-uKv"/>
+                                </constraints>
+                            </view>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8wD-pQ-Cqp" customClass="LunarPhaseSceneKitView">
+                                <rect key="frame" x="163.33333333333334" y="0.0" width="81.666666666666657" height="81.666666666666671"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="8wD-pQ-Cqp" secondAttribute="height" multiplier="1:1" id="8OD-nj-hAh"/>
+                                </constraints>
+                            </sceneKitView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="wZT-fP-g4Q" firstAttribute="leading" secondItem="U77-NA-tVC" secondAttribute="trailing" id="L3F-u6-wAK"/>
+                            <constraint firstItem="8wD-pQ-Cqp" firstAttribute="leading" secondItem="wZT-fP-g4Q" secondAttribute="trailing" id="N4P-Hp-LUa"/>
                             <constraint firstItem="U77-NA-tVC" firstAttribute="leading" secondItem="4Ee-Dz-Tbg" secondAttribute="leading" id="W5A-xd-ukE"/>
                             <constraint firstItem="U77-NA-tVC" firstAttribute="height" secondItem="4Ee-Dz-Tbg" secondAttribute="height" id="WYf-Gg-7B4"/>
                             <constraint firstItem="wZT-fP-g4Q" firstAttribute="height" secondItem="4Ee-Dz-Tbg" secondAttribute="height" id="cxj-vV-Hji"/>
+                            <constraint firstItem="8wD-pQ-Cqp" firstAttribute="height" secondItem="4Ee-Dz-Tbg" secondAttribute="height" id="eAN-kX-S5V"/>
                             <constraint firstItem="U77-NA-tVC" firstAttribute="top" secondItem="4Ee-Dz-Tbg" secondAttribute="top" id="eJz-XB-uiG"/>
+                            <constraint firstItem="8wD-pQ-Cqp" firstAttribute="top" secondItem="4Ee-Dz-Tbg" secondAttribute="top" id="ika-1P-99O"/>
                             <constraint firstItem="wZT-fP-g4Q" firstAttribute="top" secondItem="4Ee-Dz-Tbg" secondAttribute="top" id="oGq-D1-blW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lVc-IG-Wgk"/>
                     </view>
                     <connections>
+                        <outlet property="lunarPhaseSceneKitView" destination="8wD-pQ-Cqp" id="dot-U4-eaY"/>
                         <outlet property="moonPhaseView" destination="U77-NA-tVC" id="S6E-sF-bX6"/>
                         <outlet property="solarTransitView" destination="wZT-fP-g4Q" id="NF3-nm-wzl"/>
                     </connections>

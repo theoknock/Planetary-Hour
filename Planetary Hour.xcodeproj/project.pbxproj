@@ -12,6 +12,8 @@
 		B9268E8C21D0504C0037A5F7 /* LunarPhaseCoreGraphicsView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9268E8B21D0504C0037A5F7 /* LunarPhaseCoreGraphicsView.m */; };
 		B9268EB821D3F6340037A5F7 /* SolarTransitCoreGraphicsView.m in Sources */ = {isa = PBXBuildFile; fileRef = B9268EB721D3F6340037A5F7 /* SolarTransitCoreGraphicsView.m */; };
 		B96776FA21D6A06200CAC5E1 /* SolarTransit.m in Sources */ = {isa = PBXBuildFile; fileRef = B96776F921D6A06200CAC5E1 /* SolarTransit.m */; };
+		B96778C321DC50D500CAC5E1 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B96778C221DC50D500CAC5E1 /* SceneKit.framework */; };
+		B96778C621DC50E800CAC5E1 /* LunarPhaseSceneKitView.m in Sources */ = {isa = PBXBuildFile; fileRef = B96778C521DC50E800CAC5E1 /* LunarPhaseSceneKitView.m */; };
 		B9BBED4721CDC43100D98F2A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BBED4621CDC43100D98F2A /* AppDelegate.m */; };
 		B9BBED4A21CDC43100D98F2A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9BBED4921CDC43100D98F2A /* ViewController.m */; };
 		B9BBED4D21CDC43100D98F2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9BBED4B21CDC43100D98F2A /* Main.storyboard */; };
@@ -31,6 +33,9 @@
 		B9268EB721D3F6340037A5F7 /* SolarTransitCoreGraphicsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SolarTransitCoreGraphicsView.m; sourceTree = "<group>"; wrapsLines = 0; };
 		B96776F821D6A06200CAC5E1 /* SolarTransit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SolarTransit.h; sourceTree = "<group>"; wrapsLines = 0; };
 		B96776F921D6A06200CAC5E1 /* SolarTransit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SolarTransit.m; sourceTree = "<group>"; wrapsLines = 0; };
+		B96778C221DC50D500CAC5E1 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
+		B96778C421DC50E800CAC5E1 /* LunarPhaseSceneKitView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LunarPhaseSceneKitView.h; path = "Planetary Hour/LunarPhaseSceneKitView.h"; sourceTree = "<group>"; };
+		B96778C521DC50E800CAC5E1 /* LunarPhaseSceneKitView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LunarPhaseSceneKitView.m; path = "Planetary Hour/LunarPhaseSceneKitView.m"; sourceTree = "<group>"; };
 		B9BBED4221CDC43100D98F2A /* Planetary Hour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Planetary Hour.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9BBED4521CDC43100D98F2A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B9BBED4621CDC43100D98F2A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -48,17 +53,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B96778C321DC50D500CAC5E1 /* SceneKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B96778C121DC50D500CAC5E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B96778C221DC50D500CAC5E1 /* SceneKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B9BBED3921CDC43100D98F2A = {
 			isa = PBXGroup;
 			children = (
+				B96778C421DC50E800CAC5E1 /* LunarPhaseSceneKitView.h */,
+				B96778C521DC50E800CAC5E1 /* LunarPhaseSceneKitView.m */,
 				B9BBED4421CDC43100D98F2A /* Planetary Hour */,
 				B9BBED4321CDC43100D98F2A /* Products */,
+				B96778C121DC50D500CAC5E1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -169,6 +186,7 @@
 				B9268EB821D3F6340037A5F7 /* SolarTransitCoreGraphicsView.m in Sources */,
 				B9268E8C21D0504C0037A5F7 /* LunarPhaseCoreGraphicsView.m in Sources */,
 				B9BBED4A21CDC43100D98F2A /* ViewController.m in Sources */,
+				B96778C621DC50E800CAC5E1 /* LunarPhaseSceneKitView.m in Sources */,
 				B921203921D4434100CDA187 /* LunarPhase.m in Sources */,
 				B9BBED5521CDC43200D98F2A /* main.m in Sources */,
 				B9BBED4721CDC43100D98F2A /* AppDelegate.m in Sources */,
