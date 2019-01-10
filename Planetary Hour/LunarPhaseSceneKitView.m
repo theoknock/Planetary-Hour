@@ -11,6 +11,15 @@
 
 #define degreesToRadians( degrees ) ( ( degrees ) / 180.0f * M_PI )
 
+@interface LunarPhaseSceneKitView ()
+{
+    BOOL shouldRotateSphere;
+    SCNNode *cameraOrbit;
+}
+
+
+@end
+
 @implementation LunarPhaseSceneKitView
 
 - (void)awakeFromNib
@@ -22,13 +31,9 @@
 
 SCNAction *(^orbit)(SCNNode *) = ^(SCNNode *node)
 {
-    //    [node setEulerAngles:SCNVector3Make(node.eulerAngles.x - M_PI_4,
-    //                                        node.eulerAngles.y - (M_PI_4 * 3),
-    //                                        node.eulerAngles.z)];
-    
-    //    return [SCNAction rotateByX:node.eulerAngles.x y:node.eulerAngles.y z:node.eulerAngles.z duration:1];
     return [SCNAction rotateByAngle:(360.0 * (M_PI / 180.0)) aroundAxis:SCNVector3Make(1, 0, 0) duration:1];
 };
+
 float scaleBetween(float unscaledNum, float minAllowed, float maxAllowed, float min, float max) {
     return (maxAllowed - minAllowed) * (unscaledNum - min) / (max - min) + minAllowed;
 }
@@ -47,7 +52,7 @@ float scaleBetween(float unscaledNum, float minAllowed, float maxAllowed, float 
     SCNNode *cameraNode = [SCNNode node];
     cameraNode.position = SCNVector3Make(0, 0, 10);
     cameraNode.camera = camera;
-    SCNNode *cameraOrbit = [SCNNode node];
+    cameraOrbit = [SCNNode node];
     [cameraOrbit addChildNode:cameraNode];
     // TO-DO: Calculate degrees based on return value of Lunar object (moonPhase)
     // if moonPhase is less than .5 = 0 - 180 degrees
@@ -61,7 +66,7 @@ float scaleBetween(float unscaledNum, float minAllowed, float maxAllowed, float 
     [cameraOrbit runAction:[SCNAction rotateByX:0 y:degreesToRadians(-degrees) z:0 duration:1]];
     NSLog(@"Moon phase\t%f", _moonPhase);
     
-
+    
     // Lighting
     SCNNode *lightNode = [SCNNode node];
     lightNode.light = [SCNLight light];
@@ -99,6 +104,25 @@ float scaleBetween(float unscaledNum, float minAllowed, float maxAllowed, float 
     
 }
 
+- (IBAction)handlePanGesture:(UIPanGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateBegan)
+    {
+        shouldRotateSphere = TRUE;
+        NSLog(@"UIGestureRecognizerStateBegan");
+    } else if (sender.state == UIGestureRecognizerStateChanged && shouldRotateSphere
+               && fabs([sender translationInView:sender.view].y) > 10.0)
+    {
+        shouldRotateSphere = FALSE;
+        [cameraOrbit runAction:[SCNAction rotateByX:0 y:degreesToRadians([sender translationInView:sender.view].y) z:0 duration:1]];
+        
+        
+    } else if (sender.state == UIGestureRecognizerStateEnded) {
+        NSLog(@"UIGestureRecognizerStateEnded");
+    }
+}
+
+
 
 @end
+
 
